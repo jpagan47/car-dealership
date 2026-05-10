@@ -4,6 +4,20 @@ public class Vehicle {
     private String make;
     private String model;
     private String vehicleType;
+
+    @Override
+    public String toString() {
+        return
+                "vin=" + vin +
+                ", year=" + year +
+                ", make='" + make + '\'' +
+                ", model='" + model + '\'' +
+                ", vehicleType='" + vehicleType + '\'' +
+                ", color='" + color + '\'' +
+                ", odometer=" + odometer +
+                ", price=" + price ;
+    }
+
     private String color;
     private int odometer;
     private double price;
