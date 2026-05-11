@@ -1,15 +1,12 @@
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 
 public class DealershipFileManager {
+    private static final String FILEPATH = "src/main/resources/inventory.csv";
     public static Dealership getDealership() {
 
-        String filePath = "src/main/resources/inventory.csv";
+
         try {
-            BufferedReader bufferedReader =
-                    new BufferedReader(new FileReader(filePath));
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(FILEPATH));
 
             // read dealership info first
             String line = bufferedReader.readLine();
@@ -22,7 +19,6 @@ public class DealershipFileManager {
 
             Dealership dealership =
                     new Dealership(name, address, phoneNumber);
-
             // read vehicles
             while ((line = bufferedReader.readLine()) != null) {
 
@@ -46,5 +42,22 @@ public class DealershipFileManager {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+    public static void saveDealership (Dealership dealership){
+        try {
+            FileWriter fileWriter = new FileWriter(FILEPATH);
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+
+            String line = dealership.getName()+ "|" + dealership.getName() + "|" + dealership.getPhone()+"\n";
+            bufferedWriter.write(line);
+            for (Vehicle v : dealership.getAllVehicles()){
+                bufferedWriter.write(v.getVin() +"|"+v.getYear()+"|"+v.getMake()+"|"+v.getModel()+"|"+v.getVehicleType()+"|"+v.getColor()+"|"+v.getOdometer()+"|"+v.getPrice());
+            }
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+
     }
 }
