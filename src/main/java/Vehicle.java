@@ -1,4 +1,18 @@
 public class Vehicle {
+    @Override
+    public String toString() {
+        return "Vehicle{" +
+                "vin=" + vin +
+                ", year=" + year +
+                ", make='" + make + '\'' +
+                ", model='" + model + '\'' +
+                ", vehicleType='" + vehicleType + '\'' +
+                ", color='" + color + '\'' +
+                ", odometer=" + odometer +
+                ", price=" + price +
+                '}';
+    }
+
     private int vin;
     private int year;
     private String make;
@@ -17,6 +31,9 @@ public class Vehicle {
         this.color = color;
         this.odometer = odometer;
         this.price = price;
+    }
+    public Vehicle(){
+
     }
 
 

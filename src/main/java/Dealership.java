@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 
 public class Dealership {
+
     // Ask Dave why when I construct my toString it adds this @Override
     @Override
     public String toString() {
@@ -33,6 +34,9 @@ public class Dealership {
         this.address = address;
         this.phone = phone;
         inventory = new ArrayList<>();
+    }
+    public Dealership(){
+
     }
 
     public void addVehicle(Vehicle vehicle) {
